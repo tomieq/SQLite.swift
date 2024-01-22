@@ -1,6 +1,9 @@
 // swift-tools-version:5.3
 import PackageDescription
 
+let settings: [SwiftSetting] = [.unsafeFlags(["-enable-library-evolution"])]
+
+
 let package = Package(
     name: "SQLite.swift",
     platforms: [
@@ -22,7 +25,8 @@ let package = Package(
             dependencies: ["SQLiteObjc"],
             exclude: [
                 "Info.plist"
-            ]
+            ],
+            swiftSettings: settings
         ),
         .target(
             name: "SQLiteObjc",
